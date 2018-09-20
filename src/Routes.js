@@ -15,7 +15,7 @@ const Routes = (props) => {
 
                 {/* It's setup at the default index route */}
 
-                {/* <Route path="/" component={RootContainer} /> */}
+                <Route path="/" component={RootContainer} />
             </Switch>
         </BrowserRouter>
     )
