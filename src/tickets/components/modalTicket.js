@@ -1,24 +1,69 @@
 import React, { Component } from 'react'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
-import { FormExampleSubcomponentControl } from './formTicket'
+import { Button, Form, Image, Modal } from 'semantic-ui-react'
+
+
+const options = [
+    { key: 'CR', text: 'Critical', value: 'CR' },
+    { key: 'HG', text: 'High', value: 'HG' },
+    { key: 'NR', text: 'Normal', value: 'NR' },
+    { key: 'LW', text: 'Low', value: 'LW' },
+    { key: 'VL', text: 'Very Low', value: 'VL' },
+]
 
 class TicketModal extends Component {
-    constructor(props) {
+    constructor(props, state) {
         super(props);
+        this.state = {modalOpen: false};
+    }
+    handleChange = (e, { name, value }) =>{
+        this.setState({ [name]: value })
     }
     
-    componentDidMount() {
-        console.log('test', this.props.tactions.GetTags());
-        var promise = this.props.tactions.GetTags();
+    handleSubmit = () => {
+        this.props.createTicket(this.state);
+        this.setState({ modalOpen: false })
     }
 
     render() {
         return (
-        <Modal trigger={<Button>{this.props.title}</Button>}>
+        <Modal open={this.state.modalOpen}
+            trigger={<Button onClick={()=>{
+                this.setState({modalOpen: true})}}>
+            {this.props.title}</Button>}
+            onClose={this.handleSubmit}>
         <Modal.Header>{this.props.title}</Modal.Header>
-        <Modal.Content>
-        <FormExampleSubcomponentControl createTicket={this.props.createTicket}/>
-        </Modal.Content>
+            <Modal.Content>
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Group widths='equal'>
+                    <Form.Input name='summary' label='summary'
+                        placeholder='Summary' onChange={this.handleChange}
+                    />
+                </Form.Group>
+                <Form.Group widths='equal'>
+                    <Form.Select name='priority' label='priority'
+                    onChange={this.handleChange}  
+                    options={options} placeholder='Priority' />
+                </Form.Group> 
+                <Form.Group widths='equal'>
+                    <Form.Input name='tag' label='tag'
+                        list='tags' placeholder='Tag' />
+                    <datalist id='tags'>
+                        {this.props.tags.map((item) =>
+                            <option value={item.name} key={item.id}/>
+                        )}
+                        </datalist>
+                </Form.Group>        
+                    <Form.TextArea name='description' label='description'
+                        placeholder='Description of the ticket...'
+                        onChange={this.handleChange}
+                    />
+                <Form.Group widths='equal'>
+                    <Form.Input name='assignee' label='assignee'
+                        placeholder='Assignee' onChange={this.handleChange}/>
+                </Form.Group>
+                <Form.Button>Submit</Form.Button>
+            </Form>
+            </Modal.Content>
         </Modal>
     )
 }

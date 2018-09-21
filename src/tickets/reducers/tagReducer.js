@@ -25,14 +25,15 @@ export function TagListReducer(state = [], action) {
             
         //Read    
         case TagActions.GET_TAGS_SUCCESS: {
-            console.log(actions.tags.data)
             return action.tags.data
         }
         case TagActions.GET_TAGS_ERROR: {
             
-            return state.map(s => ticket(s, action))
+            return state.map(s => tag(s, action))
 
         }
+        default:
+            return state
         
     }
 }
@@ -52,7 +53,7 @@ const tag = (state, action) => {
 
         case TagActions.GET_TAGS_ERROR:
             {
-                console.log(state, action);
+                // console.log(state, action);
             }
         default:
             {

@@ -18,6 +18,7 @@ import { Provider } from 'react-redux'
 import { configureStore } from './store/configureStore'
 
 import * as TicketActions from './tickets/actions/ticketActions'
+import * as TagActions from './tickets/actions/tagActions'
 
 // import AppBar from 'material-ui/AppBar';
 
@@ -30,6 +31,7 @@ const store = configureStore()
 // fetched from the server at the start of the app
 
 store.dispatch(TicketActions.GetTickets())
+store.dispatch(TagActions.GetTags())
 
 const App = (props) => {
   return (

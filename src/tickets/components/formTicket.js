@@ -10,18 +10,15 @@ const options = [
 ]
 
 export class FormExampleSubcomponentControl extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {summary: '', assignee: '',
-        description: '', priority: 'NR'}
-    }
-    searchTags = (e, {name, value}) => {
-        
-    }
+
+  constructor(props) {
+    super(props);
+  }
 
   handleChange = (e, { name, value }) =>{
-      console.log(this.state);
-       this.setState({ [name]: value })}
+    this.setState({ [name]: value })
+  }
+
   handleSubmit = () => {
       this.props.createTicket(this.state);
   }
@@ -29,7 +26,7 @@ export class FormExampleSubcomponentControl extends Component {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group widths='equal'>
-          <Form.Input name='summary' label='summary'
+          <Form.Input name='summary' label='summary' required={true}
             placeholder='Summary' onChange={this.handleChange}
           />
         </Form.Group>
@@ -40,12 +37,11 @@ export class FormExampleSubcomponentControl extends Component {
         </Form.Group> 
         <Form.Group widths='equal'>
           <Form.Input name='tag' label='tag'
-            onChange={this.searchTags} list='languages'
-            placeholder='Tag' />
-            <datalist id='languages'>
-                <option value='English' />
-                <option value='Chinese' />
-                <option value='Dutch' />
+            list='tags' placeholder='Tag' />
+            <datalist id='tags'>
+              {this.props.tags.map((item) =>
+                  <option value={item.name} key={item.id}/>
+              )}
             </datalist>
         </Form.Group>        
         <Form.TextArea name='description' label='description'
