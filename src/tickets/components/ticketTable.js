@@ -11,8 +11,8 @@ const TicketTable = (props) => {
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>Summary</Table.HeaderCell>
-                    <Table.HeaderCell>tag</Table.HeaderCell>
-                    <Table.HeaderCell>Assignee</Table.HeaderCell>
+                    <Table.HeaderCell>Tag</Table.HeaderCell>
+                    <Table.HeaderCell>Description</Table.HeaderCell>
                     {/* <Table.HeaderCell>Options</Table.HeaderCell> */}
                 </Table.Row>
             </Table.Header>

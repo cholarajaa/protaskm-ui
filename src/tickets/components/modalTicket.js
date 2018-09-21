@@ -35,7 +35,7 @@ class TicketModal extends Component {
             <Modal.Content>
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group widths='equal'>
-                    <Form.Input name='summary' label='summary'
+                    <Form.Input name='summary' type='text' required label='summary'
                         placeholder='Summary' onChange={this.handleChange}
                     />
                 </Form.Group>
@@ -57,10 +57,6 @@ class TicketModal extends Component {
                         placeholder='Description of the ticket...'
                         onChange={this.handleChange}
                     />
-                <Form.Group widths='equal'>
-                    <Form.Input name='assignee' label='assignee'
-                        placeholder='Assignee' onChange={this.handleChange}/>
-                </Form.Group>
                 <Form.Button>Submit</Form.Button>
             </Form>
             </Modal.Content>

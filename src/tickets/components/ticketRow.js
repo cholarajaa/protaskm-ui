@@ -10,7 +10,7 @@ const TicketRow = (props) => {
         <Table.Row>
             <Table.Cell>{props.ticket.summary}</Table.Cell>
             <Table.Cell>{props.ticket.tag}</Table.Cell>
-            <Table.Cell>{props.ticket.assignee}</Table.Cell>
+            <Table.Cell>{props.ticket.description}</Table.Cell>
         </Table.Row>
     );
 }
