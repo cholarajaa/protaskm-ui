@@ -45,7 +45,7 @@ class TicketModal extends Component {
                     options={options} placeholder='Priority' />
                 </Form.Group> 
                 <Form.Group widths='equal'>
-                    <Form.Input name='tag' label='tag'
+                    <Form.Input name='tag' label='tag' onChange={this.handleChange}
                         list='tags' placeholder='Tag' />
                     <datalist id='tags'>
                         {this.props.tags.map((item) =>
