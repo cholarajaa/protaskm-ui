@@ -1,5 +1,5 @@
 import React from 'react';
-import {Table, Pagination, Icon} from 'semantic-ui-react';
+import {Table, Pagination} from 'semantic-ui-react';
 import TicketRow from './ticketRow';
 
 
@@ -13,7 +13,7 @@ const TicketTable = (props) => {
                     <Table.HeaderCell>Summary</Table.HeaderCell>
                     <Table.HeaderCell>Tag</Table.HeaderCell>
                     <Table.HeaderCell>Description</Table.HeaderCell>
-                    {/* <Table.HeaderCell>Options</Table.HeaderCell> */}
+                    <Table.HeaderCell>Options</Table.HeaderCell>
                 </Table.Row>
             </Table.Header>
 
@@ -31,7 +31,7 @@ const TicketTable = (props) => {
                     })}
             </Table.Body>
             <Table.Footer>
-            <Table.Row>
+            {/* <Table.Row>
                 <Table.HeaderCell colSpan='3'>
                 <Pagination floated='right'
                     activePage={1}
@@ -39,7 +39,7 @@ const TicketTable = (props) => {
                     totalPages={5}
                 />
                 </Table.HeaderCell>
-            </Table.Row>
+            </Table.Row> */}
             </Table.Footer>
         </Table>
     )

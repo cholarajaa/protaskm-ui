@@ -3,7 +3,6 @@ import {HttpClient} from './httpClient'
 // This is the API. The backend root URL can be set from here.
 
 const API = 'https://protaskapi.herokuapp.com/api'
-
 //Setting the tickets URI
 
 const TICKET_API = `${API}/tickets/`

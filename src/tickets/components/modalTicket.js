@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Image, Modal } from 'semantic-ui-react'
+import { Button, Form, Modal } from 'semantic-ui-react'
 
 
 const options = [
